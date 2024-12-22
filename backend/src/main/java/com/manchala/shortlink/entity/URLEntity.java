@@ -14,7 +14,9 @@ public class URLEntity {
     private String title;
     private String shortUrl;
     private String longUrl;
+    @Column(name = "click_count")
     private Integer noOfClicks = 0;
+    @Column(name = "unique_clients")
     private Integer noOfUniqueClients = 0;
 
     public Long getId() {
