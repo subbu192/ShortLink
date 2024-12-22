@@ -12,7 +12,9 @@ public class URLEntity {
     @Id
     private Long id;
     private String title;
+    @Column(name = "short_url")
     private String shortUrl;
+    @Column(name = "long_url")
     private String longUrl;
     @Column(name = "click_count")
     private Integer noOfClicks = 0;

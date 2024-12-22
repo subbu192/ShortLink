@@ -31,6 +31,7 @@ public class URLDaoWrapper {
     }
     public URLBean getLongUrl(String shortUrl) {
         Long urlId = URLShortener.convertShortUrlToId(shortUrl);
+        urlDao.incrementClickCount(urlId);
         URLEntity longUrlEntity = urlDao.findById(urlId);
         return BEConverter.convertEntityToBean(longUrlEntity);
     }

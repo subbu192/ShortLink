@@ -26,7 +26,8 @@ public class URLController {
     )
     public ResponseEntity<String> getShortUrl(@RequestBody URLBean longUrlBean) {
         URLBean shortUrlBean = urlService.getShortUrl(longUrlBean);
-        return new ResponseEntity<>(shortUrlBean.getShortUrl(), HttpStatus.OK);
+        String shortUrl = "http://localhost:8080/" + shortUrlBean.getShortUrl();
+        return new ResponseEntity<>(shortUrl, HttpStatus.OK);
     }
 
     @RequestMapping(
