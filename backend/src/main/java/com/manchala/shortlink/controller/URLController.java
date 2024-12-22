@@ -13,6 +13,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class URLController {
     @Autowired
@@ -24,10 +25,13 @@ public class URLController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public ResponseEntity<String> getShortUrl(@RequestBody URLBean longUrlBean) {
+    public ResponseEntity<URLBean> getShortUrl(@RequestBody URLBean longUrlBean) {
         URLBean shortUrlBean = urlService.getShortUrl(longUrlBean);
         String shortUrl = "http://localhost:8080/" + shortUrlBean.getShortUrl();
-        return new ResponseEntity<>(shortUrl, HttpStatus.OK);
+
+        URLBean responseUrlBean = new URLBean();
+        responseUrlBean.setShortUrl(shortUrl);
+        return new ResponseEntity<>(responseUrlBean, HttpStatus.OK);
     }
 
     @RequestMapping(
