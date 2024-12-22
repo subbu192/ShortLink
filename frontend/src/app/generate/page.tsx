@@ -7,7 +7,7 @@ export default function InputFormPage() {
             <div className="flex flex-col justify-center items-center">
                 <h1 className="text-[80px] font-semibold text-white">ShortLink</h1>
             </div>
-            <InputBox/>
+            <InputBox />
         </div>
     )
 }
